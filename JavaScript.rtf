@@ -1,0 +1,696 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Symbol;}}
+{\colortbl ;\red255\green255\blue0;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 Javascript:\par
+.length is a property of a string that returns the amount of letters in a string \par
+ex: \par
+let name = "Alexandria"\par
+name.length;\par
+//returns 10\par
+\line Functions to convert strings to upper case and lower case\par
+toUpperCase() \par
+toLowerCase() \par
+console.log(...) is used for debugging and is NOT a replacment for return \par
+Complete the function getCharCount such that it returns the number of characters in the str parameter that it recieves.\par
+function getCharCount(str) \{\par
+    return str.length;\par
+\}\par
+function shoutMyName(name) \{\par
+    \tab return name.toUpperCase();\par
+\}\par
+function lowerName(name) \{\par
+\tab return name.toLowerCase();\par
+\}\par
+Character access:\par
+You can access a character in a string by using the square brackets syntax [].\par
+You have to provide the index of the character that youd like to access, starting from 0.\par
+language[0];    //first character\par
+language[1];   //second character\par
+language[2];  //third \par
+If you'd like to debug your code and see the result of language[1] in the console, you have to console log it as follows:\par
+console.log(language[1]);\par
+\par
+COMBINE it with length:\par
+.length property. \line using language variable, heres how you get the second to last character from it\par
+"Javascript" \par
+If you want to retreive p from it \par
+language [language.length - 2]; \par
+Note that language[ language.length ] will be undefined because character access starts at 0.\line So for a string of 9 characters, 8 is the position of the last character.\par
+Comments in code\par
+/** \par
+* @param \{string\} name\par
+*/ \par
+\par
+RECAP:\par
+    Square brackets [index] are used to access a specific index from a string\par
+    The index starts at 0. So the first character is index 0\par
+    You can combine it with the length of a string to get another character in another position\par
+EX: Complete the function getFirstCharacter such that it returns the first character of the name parameter it receives.\par
+function getFirstCharacter(name) \{\par
+    return name[0];\par
+\}\par
+\ul\par
+EX: Complete the function getLastCharacter such that it returns the last character of the name parameter it receives.\par
+\ulnone function getLastCharacter(name) \{\par
+    return name [name.length - 1 ];\par
+\}\par
+Substring:\par
+A substring is a part or a portion of a string. For example, "rain" is a substring of the string "brain" because you can get "rain" by taking the last 4 characters.\par
+A substring is a part or a portion of a string. For example, "rain" is a substring of the string "brain" because you can get "rain" by taking the last 4 characters.\b\par
+\b0 EX:\par
+someString.substring(indexStart, indexEnd)\par
+This means when you call substring, you can give it 2 parameters, the first one for the indexStart and the second fo the indexEnd.\par
+\par
+-> indexStart: The position of the first character youd like to include \par
+-> indexEnd: The position of the first character youd like to ignore.\par
+This means an index of 5 will only include up to character 4. \par
+The combination of these 2 (indexStart, indexEnd) will give you a substring.\par
+\par
+\ul EX: language variable with a value JavaScript. Lets get the substring with indexStart of 1 and indexEnd of 4 \ulnone\par
+WOULD GIVE:\par
+JavaScript \par
+ava     (index 1 - 4 ) \par
+So, write this in javascript\line\line const language = "JavaScript";\line language.substring(1, 4); //"ava"\par
+Do not use the .substr method as it's deprecated and works differently. Always use the .substring method.\par
+Recap:\par
+    A substring is a part or a portion of a string.\par
+    string.substring(indexStart, indexEnd) is used to return a portion of the string.\par
+    indexStart: the position of the first character you'd like to include.\par
+    indexEnd: the position of the first character you'd like to ignore.\par
+    the indexEnd argument is optional which means you can leave it out.\par
+\ul\par
+Complete the function skipFirstCharacter such that it returns all the characters except the first one from the text parameter it receives.\par
+\ulnone function skipFirstCharacter(text) \{\par
+    return text.substring(1);\par
+\}\par
+Text ellipsis Project:\par
+\par
+\ul\b index.js is the code that manipulates the DOM. \line\ulnone\b0\par
+import \{getDescription\} from "./helpers.js";\par
+\par
+const input = document.querySelector("#input");\par
+const output = document.querySelector("#output");\par
+\par
+input.addEventListener("input", (event) => \{\par
+    output.textContent = getDescription(event.currentTarget.value);\par
+\});\par
+\par
+\ul\b helper.js\ulnone\b0\par
+/**\par
+ * @param \{string\} text\par
+ */\par
+export function getDescription(text) \{\par
+    console.log(text); // write something in the BROWSER and see it in the console\par
+    return text.substring(0, 10);\par
+\}\par
+\par
+PLUS operator:\par
+let prefix = "Mrs.";\line let name = "Sam";\line let String =  prefix "+" name;\par
+\par
++= operator:\par
+let name = "Alexandria"\line name = name + "Coffey";\par
+WE can rewrite to be:\par
+let name = "Alexandria";\line name += "Coffey";\par
+\par
+function concatInitials(firstNameInitial, lastNameInitial) \{\par
+    return firstNameInitial + lastNameInitial;\par
+\}\par
+In Javascript, ellipses ( \'85 ) are used for two separate shorthands \f1\emdash  rest syntax and spread syntax. Rest syntax will set the remaining elements of a collection to a defined variable.\f0\par
+Complete the function getDescription such that it returns the first 10 characters of the text parameter it receives followed by an ellipsis. An ellipsis is the dot character written 3 times: ...\par
+Note: for this challenge, the ... should always be there, even if the text was shorter than 10 characters.\par
+export function getDescription(text)\{\par
+\tab console.log(text); \par
+\tab return text.substring(0, 10) + "...";\par
+\}\par
+TEMPLATE STRINGS:\par
+You already know that you can create strings with double quotes or single quotes, but as you already know, these strings do not support interpolation.\par
+Template strings, however, support interpolation and other nifty features\par
+`This is a template string `\par
+The only difference is that template strings start and end with a backtick ` character\par
+The backtick is above the tab key on International keyboard layouts. For other keyboards, check out these threads for Windows/Linux & mac and look for your keyboard layout.\par
+Multiline strings\par
+Unlike single quote and double quote strings, template strings can span multiple lines. Here's an example:\par
+let text = `This is a multi \line line string that just \line works fine! ` \par
+Whereas this would have not been possible with a normal string (single quotes or double quotes).\par
+\par
+\ul\b Interpolation\ulnone\b0\par
+\ul Template strings support interpolation! This means you could write a variable in your string, and get its value. The syntax is straightforward, you wrap your variable name with a dollar sign and curly braces. Let's take an example where we have a variable language with a value of JavaScript\ulnone\par
+Template strings : ` ` \par
+let language = "JavaScript";\par
+`I am learning $\{\highlight1 language\highlight0\}`; \par
+//Returns: I am learning JavaScript \par
+Remember that string interpolation only works with backticks. If you ever try it and it doesn't work, double-check that you're using backticks rather than single or double-quotes.\par
+\ul\b\par
+Recap\ulnone\b0\par
+    A template string is a string created with the backtick character: `\par
+    Template strings can span multiple lines\par
+    Template strings support interpolation with the $\{variableName\} syntax\par
+\par
+\ul\b Complete the function sayHello such that it interpolates the variable name into a string "Hello name".\par
+\ulnone\b0 function sayHello(name) \{\par
+    return (`Hello $\{name\}`);\par
+\}\par
+function getFullName(firstName, lastName) \{\par
+    return `My name is:  $\{firstName\} $\{lastName\}`;\par
+\}\par
+function getMultilineString() \{\par
+    return `I am learning JavaScript  \par
+and I found it to be  \par
+quite fun! `\par
+\}\par
+\par
+It's very common in JavaScript to return a string that represents some HTML code. In fact, we'll be doing this quite often in the DOM Chapters. String interpolation comes in handy here because it supports multi-line strings and interpolation.\par
+Complete the function renderTableRow such that it returns the following HTML:\par
+export function renderTableRow(label, value) \{\par
+    console.log(label, value);\par
+    return `<tr>\par
+    <td>$\{label\}</td>\par
+    <td>$\{value\}</td>\par
+</tr>`;\par
+\}\par
+\par
+Capitalize word:\par
+Complete the function capitalize such that it capitalizes the name parameter it receives. There's no capitalize method in JavaScript, so you have to write it yourself.\par
+toUpperCase() returns the upper case of the whole word...\par
+\par
+return word[0].toUpperCase() + word.substring(1).toLowerCase();\par
+\}\par
+\par
+/** @param \{string\} name */\par
+export function getNumberOfChars(name) \{\par
+    // number of characters in: name\par
+    return name.length;\par
+\}\par
+\par
+/** @param \{string\} name */\par
+export function getFirstChar(name) \{\par
+    // first character of: name\par
+    return name[0];\par
+\}\par
+\par
+/** @param \{string\} name */\par
+export function getLastChar(name) \{\par
+    // last character of: name\par
+    return name [name.length - 1];\par
+\}\par
+\par
+/** @param \{string\} name */\par
+export function getLower(name) \{\par
+    // name all in lower case (example: "ABC" becomes "abc")\par
+    return name.toLowerCase();\par
+\}\par
+\par
+/** @param \{string\} name */\par
+export function getUpper(name) \{\par
+    // name all in upper case (example: "abc" becomes "ABC")\par
+    return name.toUpperCase();\par
+\}\par
+\par
+/** @param \{string\} name */\par
+export function getCapitalized(name) \{\par
+    // capitalized version of name (example: "alEX" becomes "Alex")\par
+    return name[0].toUpperCase() + name.substring(1).toLowerCase();\par
+\}\par
+\par
+Chapter Recap\par
+\par
+    You can create strings with " or '\par
+    .length is a property that gives you the length of a string\par
+    .toUpperCase() is a function that converts the string to upper case\par
+    .toLowerCase() is a function that converts the string to lower case\par
+    parentheses () on functions are required. .length is a property that is already pre-computed; therefore, it does not need parentheses.\par
+    console.log(...) is used for debugging and is NOT a replacement for return.\par
+    Square brackets [index] are used to access a specific index from a string\par
+    The index starts at 0. So the first character is index 0\par
+    You can combine it with the length of a string to get another character in another position\par
+    A substring is a part or a portion of a string.\par
+    string.substring(indexStart, indexEnd) is used to return a portion of the string.\par
+    indexStart: the position of the first character you'd like to include.\par
+    indexEnd: the position of the first character you'd like to ignore.\par
+    the indexEnd argument is optional which means you can leave it out.\par
+    The + operator is used to add 2 numbers\par
+    The + operator is used to concatenate 2 strings\par
+    A template string is a string created with the backtick character: `\par
+    Template strings can span multiple lines\par
+    Template strings support interpolation with the $\{variableName\} syntax\par
+\par
+\par
+New chapter:\par
+NUMBERS:\par
+All of these are examples of Numbers in JavaScript. It doesn't matter if it's negative or positive, or if it has decimals (values after the .) or not. We call them numbers.\par
+Converting from number to string:\par
+Though rarely used, you can convert a number to a string by calling the .toString() method\par
+let answer = 43;\par
+answer.toString();\par
+\par
+Documentation on the Web\par
+If you take a look at online documentation, you will often see String.prototype.toString(). Why is there a prototype? This is covered in-depth later in this course. For now, every time you see String.prototype.something(), it means there is a method something() that you can call on a String..\par
+{{\field{\*\fldinst{HYPERLINK https://developer.mozilla.org/en-US/ }}{\fldrslt{https://developer.mozilla.org/en-US/\ul0\cf0}}}}\f0\fs22  is the most authoritative website for JavaScript documentation. If you're getting started with JavaScript, however, you might find it a bit hard to grasp.\par
+Recap:\par
+    Convert from a number to string: value.toString()\par
+    NaN stands for Not a Number\par
+    NaN is often a sign of a bug.\par
+\par
+function convertNumberToString(number) \{\par
+    return number.toString();\par
+\}\par
+In some scenarios (explained below), you'd like to convert from a string to a number. For that, you'd have to use the Number.parseInt() method.\par
+EX:\par
+let str = '43';\par
+Number.parseInt(str, 10); \par
+The function name is called Number.parseInt(). Yes, including the Number. bit. This is because there's a global object called Number which contains a method called parseInt().\par
+ParseInt takes two parameters: \par
+Syntax: Number.parseInt(string, radix); \par
+The first parameter is the string that you'd like to convert into a number. The second argument is the radix that will be used in the conversion. \par
+\highlight1 Note: \highlight0 The radix is the base of the numerical system that you'd like to use. For most use cases the radix you'd like to use is 10 which represents the way we count numbers in our everyday lives. This system is called the decimal system (because we have 10 fingers, so we use the digits from 0 to 9).\par
+Another example of radix is 2 which represents binary (a numerical system used by computers). If you'd like to dig deeper into this concept, check out this simplified Wikipedia page about Mathematical bases.\par
+As a quick summary, the radix will most often be 10. If you're not sure what radix to choose, then it's most likely 10.\par
+{{\field{\*\fldinst{HYPERLINK https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt }}{\fldrslt{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt\ul0\cf0}}}}\f0\fs22\par
+\par
+\highlight1\ul Convert number to strings:\par
+toString()\par
+Convert strings to numbers:\par
+parseInt(string, radix) \par
+\par
+\highlight0 There are several reasons why you'd like to convert a string to a number, but the most common one is when the number is entered by the user in a text box or the number is being read from the DOM (which is explained later on).\par
+\ulnone let a = 10;\line let b = "20";\par
+a + b; \par
+(forgot to convert to #.. It will be concatenation instead) \par
+{{\field{\*\fldinst{HYPERLINK https://learnjavascript.online/app.html?id=1463 }}{\fldrslt{https://learnjavascript.online/app.html?id=1463\ul0\cf0}}}}\f0\fs22\par
+\par
+The Number.parseInt() method will try to convert the string it recieves into a number. \par
+Ex:\par
+Number.parseInt("12434ABdf", 10) \par
+Number.parseInt("5 meters", 10) // returns 5 \par
+\par
+Recap\par
+    Convert from string to number Number.parseInt(value, 10).\par
+    Number.parseInt() is the name of the function you're calling.\par
+    10 is the radix which you should specify.\par
+    Make sure to always specify the radix to avoid unpleasant surprises.\par
+\par
+\par
+NOTE:  The addEventListener() is an inbuilt function in JavaScript which takes the event to listen for, and a second argument to be called whenever the described event gets fired. Any number of event handlers can be added to a single element without overwriting existing event handlers. \par
+Syntax: \par
+element.addEventListener(event, listener, useCapture);\par
+    event : event can be any valid JavaScript event.Events are used without \ldblquote on\rdblquote  prefix like use \ldblquote click\rdblquote  instead of \ldblquote onclick\rdblquote  or \ldblquote mousedown\rdblquote  instead of \ldblquote onmousedown\rdblquote .\par
+    listener(handler function) : It can be a JavaScript function which respond to the event occur.\par
+    useCapture: It is an optional parameter used to control event propagation. A boolean value is passed where \ldblquote true\rdblquote  denotes capturing phase and \ldblquote false\rdblquote  denotes the bubbling phase.\par
+\highlight1\ul\par
+{\highlight0\ulnone{\field{\*\fldinst{HYPERLINK https://www.geeksforgeeks.org/javascript-addeventlistener-with-examples/ }}{\fldrslt{https://www.geeksforgeeks.org/javascript-addeventlistener-with-examples/\ul0\cf0}}}}\highlight0\ulnone\f0\fs22\par
+\par
+index.js\par
+import \{getNextAge\} from "./age.js";\par
+const age = document.querySelector("#your-age");\par
+const nextAge = document.querySelector("#next-age");\par
+\par
+age.addEventListener("keyup", () => \{\par
+    nextAge.textContent = getNextAge(age.value);\par
+\});\par
+\ul\b Complete the function getNextAge such that it returns the age next year (by adding 1 to the current age).\par
+Note that the age is provided by the user in a text box (which you can try in the browser tab).\par
+Do not worry about getting NaN when the text box is empty for now, we'll deal with that in a future chapter.\par
+\ulnone\b0 export function getNextAge(age) \{\par
+    return Number.parseInt(age, 10) + 1;\par
+\}\par
+\ul Complete the function getBoxWidth such it returns the width (as a number) from the string it recives. (String to number) \ulnone\par
+export function getBoxWidth(value) \{\par
+    return Number.parseInt(value);\par
+\}\par
+DIVISION:\par
+The remainder operator (%) returns the division remainder between 2 numbers.\par
+\ul Number methods\ulnone\par
+While there are some other methods you could call on numbers, they are not very commonly used. What is commonly used, however, is the Math object which contains methods such as min(), max(), round(), etc. This is covered in a dedicated chapter later in this cours\par
+\par
+export function getDivisionRemainderBy2(number) \{\par
+    return number % 2;\par
+\}\par
+\highlight1 Chapter Recap\highlight0\par
+    Convert from a number to string: value.toString()\par
+    NaN stands for Not a Number\par
+    NaN is often a sign of a bug.\par
+    Convert from string to number Number.parseInt(value, 10).\par
+    Number.parseInt() is the name of the function you're calling.\par
+    10 is the radix which you should specify.\par
+    Make sure to always specify the radix to avoid unpleasant surprises.\par
+    The remainder operator (%) returns the division remainder between 2 numbers.\par
+\par
+Variables:\par
+There are 2 ways to define a variable in JavaScript. Let's take a look at the difference between let and const.\par
+The first time you define a variable, you have to prefix it with let = . Let's take an example:\par
+let language = "C++";\par
+language = "JavaScript";\par
+\b Variables defined with let, can be re-assigned later on:\b0\par
+This is especially useful when you want to create a variable that needs to be incremented/decremented (such as a counter).\par
+\b const:\b0\par
+Variables defined with const cannot be re-assigned. This means you can use the = sign once when the variable is defined:\par
+const language = "JavaScript";\line console.log(language);\par
+const language = "python";\par
+THIS WILL BREAK ^^^ \par
+\ul\b A note about const:\ulnone\b0\par
+An important note about const is that it does not create a Constant or an Immutable value. This will be thoroughly explained once we learn about arrays & objects. What you need to know, for now, is that you can only use the equal sign once, but you can still change elements inside an array or object.\par
+\highlight1 LET OR CONST:\highlight0\par
+How do you decide if you're going to use let or const? The general rule is easy. Always go with const, until you realize that you need to be able to re-assign the variable later on, then switch it to let..\par
+With time it becomes easier. For example, when you define a variable count (that you expect to increment), you will immediately realize that and use let.\par
+The benefit of using const is that once a variable is an array, it will always be an array (but as you will see later on, the elements inside the array might change). This allows you to confidently use array methods on that variable because you know it will always be of type array\par
+\ul\b Can I use 'var'? \ulnone\b0\par
+Even though var still works, its usage is discouraged as it may be confusing in a lot of scenarios. So you can simply replace var with let (or const if the variable is not being reassigned).\par
+\par
+\highlight1 Recap\highlight0\par
+    When you use a variable for the first time in JavaScript, you need to declare it with either let or const.\par
+    Use let for variables that you will need to re-assign later on (as in changing their value)\par
+    Use const for variables that you won't need to re-assign later on.\par
+    Variables declared with const are not constant. We will see why later in this course.\par
+    Variables declared with const cannot be re-assigned so you cannot have the = next to that variable name after declaring it.\par
+    If you see var, it's from the old version of JavaScript. You can convert it to let (sometimes const if the variable is not re-assigned).\par
+\ul\par
+Define a variable:\par
+\ulnone //define a variable "count" with value 0\par
+let count = 0;\par
+//then increment it\par
+count ++ ;\par
+\par
+\highlight1\b Recap\highlight0\b0\par
+    When you use a variable for the first time in JavaScript, you need to declare it with either let or const.\par
+    Use let for variables that you will need to re-assign later on (as in changing their value)\par
+    Use const for variables that you won't need to re-assign later on.\par
+    Variables declared with const are not constant. We will see why later in this course.\par
+    Variables declared with const cannot be re-assigned so you cannot have the = next to that variable name after declaring it.\par
+    If you see var, it's from the old version of JavaScript. You can convert it to let (sometimes const if the variable is not re-assigned).\par
+\par
+{{\field{\*\fldinst{HYPERLINK https://learnprogramming.online }}{\fldrslt{https://learnprogramming.online\ul0\cf0}}}}\f0\fs22\par
+\par
+\ul Conditions\ulnone\par
+conditions in javascript have the following blueprint:\par
+if (condition) \{\line\tab //do something\par
+\}\par
+EX:\par
+const grade = 15;\par
+if (grade >= 10) \{\par
+\tab console.log("Passing grade");\par
+\}\par
+\par
+const grade = 3;\par
+if (grade >= 10) \{\par
+    console.log("Passing grade");\par
+\} else \{\par
+    console.log("Failing grade");\par
+\}\par
+THIS will output failing grade - grade is assigned to 3 at first \par
+\par
+const grade = 10;\par
+if (grade > 10) \{\par
+    console.log("Passing grade");\par
+\} else if (grade === 10) \{\par
+    console.log("Passing on the limit");\par
+\} else \{\par
+    console.log("Failing grade");\par
+\}\par
+\par
+A note regarding ligatures\par
+Note that the === that you're seeing is in fact 3 equal signs after each other ===\par
+The fact that they show up as a single character is a feature that you can enable in your code editor, it's called a ligature and is supported by some fonts.\par
+Here are some other examples of ligatures that you will see:\par
+\par
+\highlight1 Recap\highlight0\par
+    Using an if condition, you can run a piece of code when the condition evaluates to true\par
+    The syntax is if (condition) and then curly braces \{\} wrap the lines of code that correspond to this condition\par
+    The else keyword can be used to perform some other code based on all the other conditions not satisfied with the if.\par
+\par
+\ul Implement the function canVote such that it returns true whenever the age 18 or above and false in all other scenarios.\ulnone\par
+function canVote(age) \{\par
+    if(age >= 18)\{\par
+        return true;\par
+    \}else\{\par
+        return false;\par
+    \}\par
+\}\par
+\par
+Advanced if :\par
+It is possible sometimes to drop the else. Let's take a look at an example\par
+function canVote(age) \{\par
+    if (age >= 18) \{\par
+        return true;\par
+    \}\par
+    return false;\par
+\}\par
+These two functions will have the exact same result. That's because the return keyword will quit the function with the result. So, when the age is bigger than or equals 18, the function will return true and the rest of the code will not execute.\par
+\highlight1\par
+Legacy note\par
+\highlight0 A quick legacy note. If you encounter == (double equal) in JavaScript, aim to replace it with === triple equal.\par
+Always use triple equal === when comparing 2 values in JavaScript.\par
+\par
+\highlight1 Recap\highlight0\par
+    When you have an if/else condition that returns two different results, it is possible to drop the else keyword.\par
+    Always use triple equals (===) when comparing 2 values in JavaScript\par
+\par
+\par
+Whenever you're returning a boolean (true or false), it's quite redundant to use if and else. Here's an example:\par
+This is redundant because grade >= 10 on its own, evaluates to true or false depending on the grade. This means you don't need to wrap it with an if/else statement.\par
+That's why you can refactor it like this:\par
+function isPassing(grade) \{\par
+    return grade >= 10;\par
+\}\par
+Even & Odd\par
+// even numbers\par
+4 % 2 // 0\par
+6 % 2 // 0\par
+8 % 2 // 0\par
+10 % 2 // 0\par
+\par
+// odd numbers\par
+3 % 2 // 1\par
+5 % 2 // 1\par
+7 % 2 // 1\par
+9 % 2 // 1\par
+Notice how the division remainder by two is always 0 when the number is even. Whereas it's 1 when the number is odd.\par
+\highlight1 Arrays:\par
+\highlight0 Arrays in JavaScript allow you to store multiple elements in the same variable.. You can store numbers, strings, booleans, arrays, objects and more. \par
+const users = [];  //Empty array\line const grades = [10, 8,13, 15]; //Array of numbers\line const attendees = ['Sam', 'Alex']; //Aray of strings\line const values = [10, false, "John"]'   //Array of mixed\par
+.length property: \par
+You can get the number of elements in an array by using .length property. \par
+Name arrays in the plural as they can contain more than one item. This will prove to be especially useful once we need to iterate over an array.\par
+[].length;\par
+const grades = [13, 12, 4, 7];\par
+grades.length;\par
+\par
+Get element by index:\par
+Similarly to strings, you can get an element from an array by using the square bracket syntax [] with the index starting from 0.\par
+const users = ["Sam", "Alex", "Charley"];\par
+users[1]; //"Alex"\par
+\par
+Adding an element:\par
+You can add an element to an array using the .push() method\par
+const numbers = [10, 8, 13, 15];\par
+numbers.push(20); // returns 5 (the new length of the array)\par
+console.log(numbers); // [10, 8, 13, 15, 20];\par
+\par
+Even though the variable numbers was defined with const, we were able to push new data into it.\par
+That's because const means you can only assign the variable once when it's defined. But it doesn't mean the variable is immutable. Its content can change.\par
+const numbers = []; // start with empty array\par
+numbers.push(10); // returns 1 (new length of array)\par
+console.log(numbers); // [10] (still an array but content changed)\par
+numbers.push(20); // returns 2 (new length of array)\par
+console.log(numbers); // [10, 20] (still an array but content changed)\par
+\ul\par
+Complete the function getNumberOfElements such that it returns the number of items contained in the elements array it receives.\par
+\ulnone function getNumberOfElements(elements) \{\par
+    return elements.length;\par
+\}\par
+\par
+Add calculator to apps\par
+Complete the function useCalculator such that it adds the "Calculator" string to the apps array it receives.\par
+There is a small trick in this challenge to make sure you understand an important concept. Spend some time trying to figure it out, then check the hints if you get stuck.\par
+\par
+Complete the function such that the app variable is added to the apps array\par
+function useApp(apps, app) \{\par
+    apps.push(app);\par
+    return apps;\par
+\}\par
+\ul\par
+Complete the function getFirstApp such that it returns the first element from the apps array it receives as a parameter.\par
+\ulnone function getFirstApp(apps) \{\line     return apps[0];\par
+\}\par
+\par
+\ul Complete the function getLastApp such that it returns the last element from the apps array it receives as a parameter.\ulnone\par
+function getLastApp(apps) \{\par
+    return apps[apps.length -1 ];\par
+\}\par
+\par
+Array forEach:\par
+Array iteration is one of the most important concepts that you will use in JavaScript.\par
+Let's say we have an array of grades and you'd like to loop (or iterate) over every item in this array. Here's how you do that in JavaScript:\par
+A callback is a function definition passed as an argument to another function. In our example above, here's the callback function:\par
+function(grade) \{\par
+    // do something with individual grade\par
+    console.log(grade);\par
+\}\par
+This callback function receives a grade and then logs it to the console. This is a function definition because it's not being executed. It only defines the behavior of the function. However, this function definition is passed as an argument to the .forEach() method:\par
+Once you combine the two together, as in, pass the function definition as an argument to the .forEach() method, then you get:\par
+grades.forEach(function(grade) \{\par
+    // do something with individual grade\par
+    console.log(grade);\par
+\});\par
+\par
+Recap\par
+    .forEach(callback) iterates over every item in an array.\par
+    A callback is a function definition passed as an argument to another function.\par
+    Always start with a console.log() inside the .forEach() to visualize the shift from array to array item (you can skip that when you become used to it).\par
+    The .forEach() method will take your function definition and call it for every item of the array. Every time it calls it, it will replace the first parameter with the corresponding array item.\par
+\par
+The .forEach(callback) method allows you to run the callback function for every item in that array.... \par
+A callback is a function definition passed as an argument to another function. In our example abovem heres the callback function:\par
+function(grade)\{\line console.log(grade)\line\}\par
+A callback function recieves a grade and then logs it to the console.\line This function definition is passed as an argument to the .forEach() method:\par
+Like so:\par
+grades.forEach(insert_callback_here);\par
+Once you combine the two together, as in, pass the function definition as an argument to the .forEach() method, then you get:\par
+grades.forEach(function(grade) \{\line\tab console.log(grade) \par
+\}\par
+grades.forEach(function(grade) \{\par
+    // do something with individual grade\par
+    console.log(grade);\par
+\});\par
+and this code will log every grade from the grades array to the console. \par
+\highlight1\par
+// this is the callback\par
+function(grade) \{\par
+    console.log(grade);\par
+\}\par
+\highlight0 // call the callback with grade = 10\par
+console.log(grade); // will log 10\par
+// call the callback with grade = 8\par
+console.log(grade); // will log 8\par
+// call the callback with grade = 13\par
+console.log(grade); // will log 13\par
+\par
+But who's calling it and providing the different values? Well, JavaScript is! You provide the callback (function definition) and pass it to the .forEach() and JavaScript does the rest!\par
+\par
+\b How does it know that it's "grade"\b0\par
+A common question when learning about callbacks is how does JavaScript know that grades becomes grade in the callback parameter. The answer is, it doesn't!\par
+It doesnt care about the variables, it will always (in the case of .forEach) look for the first parameter you define in your callback function and pass it to the correct value. \par
+\par
+grades.forEach(function(x) \{\par
+    // this works, but avoid using generic variable names\par
+    console.log(x);\par
+\});\par
+So this works because JavaScript will look for the first parameter, x and it will call the callback and give a value to x every time.\par
+\par
+\b Return confusion\b0\par
+In this lesson, we'll cover a common confusion when it comes to returning inside a function that contains a .forEach() call.\par
+Naming variables:\par
+Naming variables with a clear name makes it much easier for you and others to understand the code. This is especially true with iteration.\par
+Thus, it's always a good idea to use the plural for the array and singular for the item of the array.\par
+    grades => item is grade\par
+    people => item is person\par
+\par
+It may sound like it's a minor tip, but it makes a big difference! \f2\u-10179?\u-9055?\par
+\par
+\f0 const grades = [10, 14, 15]; // array (plural)\par
+grades.forEach(function(grade) \{ // array item (singular)\par
+    console.log(grade);\par
+\});\par
+\par
+cont people = ["Alex", "Val", "Sam"];\par
+people.forEach(function(person)\{\par
+\tab console.log(person)\par
+\}\par
+\ul Returning from loop:\ulnone\par
+here's a common mistake that occurs when you try to return from a function that contains a forEach call. That's because there are 2 functions. Let's say you have this function:\par
+function logUserIds(userIds) \{\par
+    userIds.forEach(function(userId) \{\par
+        console.log(userId);\par
+    \});\par
+\}\par
+And you would like this function to return TRUE, when completed. Where do you place the return true?\par
+If we take a step back, the return keyword returns from its own function. Thus, the first approach does NOT work. Because you're returning from the callback function that the .forEach() receives. This will NOT return from the logUserIds function.\par
+so: its like this\par
+function logUserIds(userIds) \{\par
+    userIds.forEach(function(userId) \{\par
+        console.log(userId);\par
+    \});\par
+    return true; //  // \f3\u9989?\f0  return from the logUserIds function\par
+\}\par
+The return true inside the function is not really useful because it's going to return from the callback function but there's isn't anymore code inside that function anyway. The next iteration of the .forEach() will still happen.\par
+Let's take a look at an educational example to make sure you understand it. What do you think this function logGrades will return once it's called?\par
+function logGrades(grades) \{\par
+    grades.forEach(function(grade) \{\par
+        console.log(grade);\par
+        return 10;\par
+    \});\par
+    return 20;\par
+\}\par
+Will the function return 10 or 20?\par
+The function will return 20 because it's returning from the outer function.\par
+You may have noticed that we're using the function keyword instead of modern JavaScript's arrow functions. This is purposely the case as functions are quite common everywhere. Arrow functions will be introduced in a later chapter and then used in array iteration.\par
+\par
+\highlight1 Recap\highlight0\par
+ Name your arrays in plural and the array item (inside the .forEach()) in singular.\par
+ Make sure to correctly place the return inside a function that contains a .forEach().\par
+{{\field{\*\fldinst{HYPERLINK https://learnjavascript.online/app.html?id=1494 }}{\fldrslt{https://learnjavascript.online/app.html?id=1494\ul0\cf0}}}}\f0\fs22\par
+\par
+\lang4105  \lang9\par
+Complete the function sumPositiveNumbers such that it returns the sum of all positive numbers from the numbers parameter it receives.\par
+This challenge will help you combine some of the knowledge you acquired in this course. Take your time and make as many mistakes as possible!\par
+\par
+/**\par
+ * @param \{number[]\} numbers\par
+ */\par
+function sumPositiveNumbers(numbers) \{\par
+    let sum = 0;\par
+    numbers.forEach(function(number) \{\par
+        if (number >= 0) \{\par
+            sum = sum + number;\par
+        \}\par
+    \});\par
+    return sum;\par
+\}\par
+\ul\b Complete the function sumOddNumbers such that it returns the sum of all the odd numbers from the numbers parameter it receives.\ulnone\b0\par
+function sumOddNumbers(numbers) \{\par
+     let sum = 0;\par
+    numbers.forEach(function(number) \{\par
+        if (number % 2 !== 0) \{\par
+            sum = sum + number;\par
+        \}\par
+    \});\par
+    return sum;\par
+\}\par
+{{\field{\*\fldinst{HYPERLINK https://learnjavascript.online/app.html?id=1497 }}{\fldrslt{https://learnjavascript.online/app.html?id=1497\ul0\cf0}}}}\f0\fs22\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 
